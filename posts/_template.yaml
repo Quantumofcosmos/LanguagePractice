@@ -1,0 +1,38 @@
+number: 1
+chapter: 1
+sentence: 1
+
+english:
+  tokens:
+    - text: ""
+
+chinese:
+  tokens:
+    - text: ""
+      reading: ""
+      meaning: null
+      study: false
+  pattern: null
+  observation: null
+
+japanese:
+  tokens:
+    - text: ""
+      reading: ""
+      kana: null
+      meaning: null
+      study: false
+  pattern: null
+  observation: null
+
+german:
+  tokens:
+    - text: ""
+      reading: null
+      meaning: null
+      study: false
+  pattern: null
+  observation: null
+
+connection: null
+field_note: null

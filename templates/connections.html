@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block body %}
+<article class="slide connections">
+  <header class="header">
+    <span class="eyebrow">{{ "%03d"|format(post.number) }} / CONNECTIONS</span>
+    <span class="language-glyph">✦</span>
+  </header>
+  <main class="connection-main">
+    <div class="connection-kicker">THREE LANGUAGES, ONE IDEA</div>
+    {% if post.connection.title %}<h1>{{ post.connection.title }}</h1>{% endif %}
+    {% if post.connection.text %}<p class="connection-text">{{ post.connection.text }}</p>{% endif %}
+  </main>
+  {% include "_footer.html" %}
+</article>
+{% endblock %}

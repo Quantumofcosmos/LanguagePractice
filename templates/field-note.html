@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block body %}
+<article class="slide field-note">
+  <header class="header">
+    <span class="eyebrow">
+      FIELD NOTE {{ "%03d"|format(post.number) }}
+    </span>
+
+    <span class="chapter">
+      CH. {{ "%02d"|format(post.chapter) }}
+    </span>
+  </header>
+
+
+  <main class="field-note-main">
+
+    <div class="field-note-star">✦</div>
+
+    <!-- English -->
+    <section class="field-language field-english">
+      <div class="field-english-sentence">
+        {{ post.english.tokens|plain_tokens|safe }}
+      </div>
+    </section>
+
+    <!-- Chinese -->
+    <section class="field-language field-chinese">
+      <div class="field-chinese-sentence">
+
+        {% for token in post.chinese.tokens %}
+
+        {% if token.reading %}
+        <span class="field-chinese-token">
+
+          <span class="field-chinese-text">
+            {{ token.text }}
+          </span>
+
+          <span class="field-chinese-reading">
+            {{ token.reading }}
+          </span>
+
+        </span>
+
+        {% else %}
+        <span class="field-chinese-token field-punctuation">
+          <span class="field-chinese-text">
+            {{ token.text }}
+          </span>
+        </span>
+        {% endif %}
+
+        {% endfor %}
+
+      </div>
+    </section>
+
+
+    <!-- Japanese -->
+    <section class="field-language field-japanese">
+
+      <div class="field-japanese-sentence">
+
+        {% for token in post.japanese.tokens %}
+
+        {% if token.reading %}
+        <span class="field-japanese-token">
+
+          <span class="field-japanese-written">
+            {% if token.kana %}
+            <ruby>
+              {{ token.text }}
+              <rt>{{ token.kana }}</rt>
+            </ruby>
+            {% else %}
+            {{ token.text }}
+            {% endif %}
+          </span>
+
+          <span class="field-japanese-romaji">
+            {{ token.reading }}
+          </span>
+
+        </span>
+
+        {% else %}
+        <span class="field-japanese-token field-punctuation">
+          <span class="field-japanese-written">
+            {{ token.text }}
+          </span>
+        </span>
+        {% endif %}
+
+        {% endfor %}
+
+      </div>
+    </section>
+
+
+    <!-- German -->
+    <section class="field-language field-german">
+      <div class="field-german-sentence">
+        {{ post.german.tokens|plain_tokens|safe }}
+      </div>
+    </section>
+
+
+    <div class="travelled">
+      {{ post.number }} SENTENCE{% if post.number != 1 %}S{% endif %} TRAVELLED
+    </div>
+
+  </main>
+
+  {% include "_footer.html" %}
+</article>
+{% endblock %}

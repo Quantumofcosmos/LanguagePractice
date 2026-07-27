@@ -1,0 +1,93 @@
+number: 1
+chapter: 1
+sentence: 1
+
+english:
+  tokens:
+    - text: "When I was six years old…"
+
+chinese:
+  tokens:
+    - text: "当"
+      reading: "dāng"
+      meaning: "when"
+    - text: "我"
+      reading: "wǒ"
+      meaning: "I; me"
+    - text: "还"
+      reading: "hái"
+      meaning: "still"
+    - text: "只有"
+      reading: "zhǐ yǒu"
+      meaning: "only"
+      study: true
+    - text: "六岁"
+      reading: "liù suì"
+      meaning: "six years old"
+      study: true
+    - text: "的时候"
+      reading: "de shíhou"
+      meaning: "when; at the time"
+      study: true
+    - text: "……"
+
+  pattern: "当 X 的时候 — when X"
+  observation: "六岁 expresses age directly — no equivalent of “was” is needed."
+
+japanese:
+  tokens:
+    - text: "ぼく"
+      reading: "boku"
+      meaning: "I; commonly masculine"
+      study: true
+    - text: "が"
+      reading: "ga"
+      meaning: "subject marker"
+    - text: "６つ"
+      kana: "むっつ"
+      reading: "muttsu"
+      meaning: "six; here, six years old"
+      study: true
+    - text: "の"
+      reading: "no"
+    - text: "とき"
+      reading: "toki"
+      meaning: "time; when"
+      study: true
+    - text: "、"
+
+  pattern: "X のとき — when X"
+  observation: "６つ is read むっつ. Japanese needs no equivalent of “was” here."
+
+german:
+  tokens:
+    - text: "Als "
+      meaning: "when; for a past time"
+      study: true
+    - text: "ich "
+      meaning: "I"
+    - text: "sechs "
+      meaning: "six"
+    - text: "Jahre "
+      meaning: "years"
+    - text: "alt "
+      meaning: "old"
+      study: true
+    - text: "war"
+      meaning: "was; past of sein"
+      study: true
+    - text: ","
+
+  pattern: "Als + past clause — the conjugated verb goes to the end."
+  observation: "Als introduces a past-time clause, so war appears at the end."
+
+connection:
+  title: "When I was six"
+  text: "Chinese uses 当……的时候, Japanese uses X のとき, and German uses Als. Chinese and Japanese need no equivalent of “was” here; German uses war."
+
+field_note: |
+  当我还只有六岁的时候
+
+  ぼくが６つのとき
+
+  Als ich sechs Jahre alt war

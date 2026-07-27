@@ -1,0 +1,13 @@
+project:
+  title: "THE LITTLE PRINCE PROJECT"
+  tagline: "one book · three languages · one sentence at a time"
+
+languages:
+  english:
+    label: "ENGLISH"
+  chinese:
+    label: "中文"
+  japanese:
+    label: "日本語"
+  german:
+    label: "DEUTSCH"

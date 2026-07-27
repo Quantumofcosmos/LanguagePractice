@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% block body %}
+<article class="slide language-slide {{ lang_key }}">
+  <header class="header">
+    <span class="eyebrow">
+      {{ "%03d"|format(post.number) }} / {{ post.labels|attr(lang_key) }}
+    </span>
+    <span class="language-glyph">{{ post.labels|attr(lang_key) }}</span>
+  </header>
+
+  <main class="language-main">
+    <section class="hero-copy">
+
+      {% if lang_key == "chinese" %}
+
+      <div class="aligned-sentence {{ language.text|sizeclass }}">
+        {% for token in language.tokens %}
+
+          {% if token.reading %}
+          <span class="aligned-token">
+            <span class="aligned-text{% if token.highlight %} highlighted{% endif %}">
+              {{ token.text }}
+            </span>
+
+            <span class="aligned-reading">
+              {{ token.reading }}
+            </span>
+          </span>
+
+          {% else %}
+          <span class="aligned-token punctuation-token">
+            <span class="aligned-text">
+              {{ token.text }}
+            </span>
+          </span>
+          {% endif %}
+
+        {% endfor %}
+      </div>
+
+
+      {% elif lang_key == "japanese" %}
+
+      <div class="jp-token-sentence {{ language.text|sizeclass }}">
+        {% for token in language.tokens %}
+
+          {% if token.reading %}
+          <span class="jp-token">
+
+            <span class="jp-written">
+              {% if token.kana %}
+              <ruby>
+                {{ token.text }}
+                <rt>{{ token.kana }}</rt>
+              </ruby>
+              {% else %}
+              {{ token.text }}
+              {% endif %}
+            </span>
+
+            <span class="jp-romaji">
+              {{ token.reading }}
+            </span>
+
+          </span>
+
+          {% else %}
+          <span class="jp-token jp-punctuation">
+            <span class="jp-written">
+              {{ token.text }}
+            </span>
+          </span>
+          {% endif %}
+
+        {% endfor %}
+      </div>
+
+
+      {% else %}
+
+      <div class="sentence {{ language.text|sizeclass }}">
+        {{ language.tokens|plain_tokens|safe }}
+      </div>
+
+      {% endif %}
+
+    </section>
+
+
+    {% if language.study_tokens %}
+    <section class="section">
+      <h2>WORDS</h2>
+
+      <div class="word-list">
+        {% for item in language.study_tokens %}
+        <div class="word-row">
+          <div class="word">{{ item.text }}</div>
+
+          <div class="word-reading">
+            {{ item.kana or item.reading or "" }}
+          </div>
+
+          <div class="meaning">
+            {{ item.meaning or "" }}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+
+    {% if language.pattern %}
+    <section class="section notice">
+      <h2>PATTERN</h2>
+      <p>{{ language.pattern }}</p>
+    </section>
+    {% endif %}
+
+
+    {% if language.observation %}
+    <section class="section observation">
+      <h2>OBSERVATION</h2>
+      <p>{{ language.observation }}</p>
+    </section>
+    {% endif %}
+
+  </main>
+
+  {% include "_footer.html" %}
+</article>
+{% endblock %}

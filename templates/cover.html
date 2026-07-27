@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block body %}
+<article class="slide cover">
+  <header class="header">
+    <span class="eyebrow">SENTENCE {{ "%03d"|format(post.number) }}</span>
+    <span class="chapter">
+      CH. {{ "%02d"|format(post.chapter) }} · S. {{ "%02d"|format(post.sentence) }}
+    </span>
+  </header>
+
+  <main class="cover-main">
+    <div class="star">✦</div>
+
+    <section class="voice en">
+      <div class="language-label">{{ post.labels.english }}</div>
+      <div class="cover-sentence {{ post.english.text|sizeclass }}">
+        {{ post.english.tokens|plain_tokens|safe }}
+      </div>
+    </section>
+
+    <section class="voice zh">
+      <div class="language-label">{{ post.labels.chinese }}</div>
+      <div class="cover-sentence {{ post.chinese.text|sizeclass }}">
+        {{ post.chinese.tokens|plain_tokens|safe }}
+      </div>
+    </section>
+
+    <section class="voice ja">
+      <div class="language-label">{{ post.labels.japanese }}</div>
+      <div class="cover-sentence {{ post.japanese.text|sizeclass }}">
+        {{ post.japanese.tokens|plain_tokens|safe }}
+      </div>
+    </section>
+
+    <section class="voice de">
+      <div class="language-label">{{ post.labels.german }}</div>
+      <div class="cover-sentence {{ post.german.text|sizeclass }}">
+        {{ post.german.tokens|plain_tokens|safe }}
+      </div>
+    </section>
+  </main>
+
+  {% include "_footer.html" %}
+</article>
+{% endblock %}
