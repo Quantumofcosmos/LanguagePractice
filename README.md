@@ -1,78 +1,31 @@
-# Little Prince Journal
+# Language Practice
 
-A token-based YAML → Jinja → HTML → Playwright pipeline for learning
-*The Little Prince* in Chinese, Japanese and German in parallel.
+One chronological post stream with two post types.
 
-## Core model
-
-`number` is the global post number.
-`chapter` is the book chapter.
-`sentence` is the learning-unit number inside that chapter.
-
-Tokens are meaningful learning units, not necessarily individual characters.
-
-### Chinese
-
-```yaml
-- text: "六岁"
-  reading: "liù suì"
-  meaning: "six years old"
-  study: true
-```
-
-On the language slide, each pinyin reading is physically attached to its token.
-Long sentences can wrap without losing reading alignment.
-
-### Japanese
-
-```yaml
-- text: "６つ"
-  kana: "むっつ"
-  reading: "muttsu"
-  meaning: "six; here, six years old"
-  study: true
-```
-
-`kana` becomes ruby only when it exists. Tokens without kana do not emit
-`ruby` or `rt`, so they do not create an empty placeholder gap.
-
-`reading` is romaji. The full romaji line is derived from token readings.
-
-### WORDS
-
-Set `study: true` on up to three tokens you want shown in WORDS.
-The renderer does not choose the first three tokens automatically.
-
-## Create
+## Vocabulary chunks
+Create a five-concept starter YAML:
 
 ```bash
-python3 new.py --chapter 1 --sentence 2
+python3 new.py vocabulary --title "People"
 ```
 
-The global post number increments automatically.
+Vocabulary posts accept 3–6 concepts. Five is the default. They render six slides: overview, Chinese, Japanese, German, usage, reference.
 
-## Preview
-
-Preview the latest post:
+## Sentence posts
 
 ```bash
-python3 dev.py
+python3 new.py sentence --chapter 1 --sentence 1
 ```
 
-Or a specific post:
+Sentence posts retain the Little Prince layout and `SENTENCES TRAVELLED` counts only sentence-type posts.
+
+## Preview / render
 
 ```bash
-python3 dev.py 1
+python3 dev.py          # latest post
+python3 dev.py 2        # specific post
+python3 render.py 2
+python3 render.py --all
 ```
 
-Custom port:
-
-```bash
-python3 dev.py 1 --port 8080
-```
-
-## Render PNGs
-
-```bash
-python3 render.py 1
-```
+Post numbers are global across both types.

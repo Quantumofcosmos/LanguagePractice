@@ -1,93 +1,71 @@
+type: vocabulary
 number: 1
-chapter: 1
-sentence: 1
-
-english:
-  tokens:
-    - text: "When I was six years old…"
-
-chinese:
-  tokens:
-    - text: "当"
-      reading: "dāng"
-      meaning: "when"
-    - text: "我"
-      reading: "wǒ"
-      meaning: "I; me"
-    - text: "还"
-      reading: "hái"
-      meaning: "still"
-    - text: "只有"
-      reading: "zhǐ yǒu"
-      meaning: "only"
-      study: true
-    - text: "六岁"
-      reading: "liù suì"
-      meaning: "six years old"
-      study: true
-    - text: "的时候"
-      reading: "de shíhou"
-      meaning: "when; at the time"
-      study: true
-    - text: "……"
-
-  pattern: "当 X 的时候 — when X"
-  observation: "六岁 expresses age directly — no equivalent of “was” is needed."
-
-japanese:
-  tokens:
-    - text: "ぼく"
-      reading: "boku"
-      meaning: "I; commonly masculine"
-      study: true
-    - text: "が"
-      reading: "ga"
-      meaning: "subject marker"
-    - text: "６つ"
-      kana: "むっつ"
-      reading: "muttsu"
-      meaning: "six; here, six years old"
-      study: true
-    - text: "の"
-      reading: "no"
-    - text: "とき"
-      reading: "toki"
-      meaning: "time; when"
-      study: true
-    - text: "、"
-
-  pattern: "X のとき — when X"
-  observation: "６つ is read むっつ. Japanese needs no equivalent of “was” here."
-
-german:
-  tokens:
-    - text: "Als "
-      meaning: "when; for a past time"
-      study: true
-    - text: "ich "
-      meaning: "I"
-    - text: "sechs "
-      meaning: "six"
-    - text: "Jahre "
-      meaning: "years"
-    - text: "alt "
-      meaning: "old"
-      study: true
-    - text: "war"
-      meaning: "was; past of sein"
-      study: true
-    - text: ","
-
-  pattern: "Als + past clause — the conjugated verb goes to the end."
-  observation: "Als introduces a past-time clause, so war appears at the end."
-
-connection:
-  title: "When I was six"
-  text: "Chinese uses 当……的时候, Japanese uses X のとき, and German uses Als. Chinese and Japanese need no equivalent of “was” here; German uses war."
-
-field_note: |
-  当我还只有六岁的时候
-
-  ぼくが６つのとき
-
-  Als ich sechs Jahre alt war
+title: People
+subtitle: Five core words for talking about people
+concepts:
+- english: I / me
+  chinese:
+    text: 我
+    reading: wǒ
+  japanese:
+    text: 私
+    kana: わたし
+    reading: watashi
+  german:
+    text: ich
+- english: you
+  chinese:
+    text: 你
+    reading: nǐ
+  japanese:
+    text: あなた
+    reading: anata
+    note: Often omitted; names/titles are common.
+  german:
+    text: du
+    note: Informal singular.
+- english: he
+  chinese:
+    text: 他
+    reading: tā
+  japanese:
+    text: 彼
+    kana: かれ
+    reading: kare
+  german:
+    text: er
+- english: she
+  chinese:
+    text: 她
+    reading: tā
+  japanese:
+    text: 彼女
+    kana: かのじょ
+    reading: kanojo
+  german:
+    text: sie
+- english: we
+  chinese:
+    text: 我们
+    reading: wǒmen
+  japanese:
+    text: 私たち
+    kana: わたしたち
+    reading: watashitachi
+  german:
+    text: wir
+usage:
+- english: I am …
+  chinese: 我是……
+  chinese_reading: wǒ shì…
+  japanese: 私は……です
+  japanese_kana: わたしは……です
+  japanese_reading: watashi wa … desu
+  german: Ich bin …
+- english: And you?
+  chinese: 你呢？
+  chinese_reading: nǐ ne?
+  japanese: あなたは？
+  japanese_reading: anata wa?
+  german: Und du?
+note: Japanese pronouns are often omitted when context makes the person clear.
